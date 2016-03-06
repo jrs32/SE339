@@ -1,9 +1,9 @@
 package hw3.Calc;
 
-abstract class calcState {
+abstract class CalcState {
 
 	// Null-Object Pattern: errorState does nothing
-	final static calcState errorState = new calcState() { 
+	final static CalcState errorState = new CalcState() { 
 		public void Operation(Calculator calc, char c) {}
 		public void Equal(Calculator calc) {}
 		public void Digit(Calculator calc, char digit) { }
