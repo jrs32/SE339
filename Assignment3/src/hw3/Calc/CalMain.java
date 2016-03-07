@@ -2,7 +2,11 @@ package hw3.Calc;
 
 public class CalMain {
 	public static void main(String[] args) {
-		String input = "3+4=";
+		String input = "";
+		if(args.length > 0){ // If it is called with a cmd line argument, use it
+			input = args[0];
+		}
+		input = "3+42-1*2+2.3="; // Reads as 3 + 42 - 12 + 23
 		Calculator cal = new Calculator();
 		cal.setState(StartState.singleton);
 
@@ -15,12 +19,12 @@ public class CalMain {
 			else if('=' == c){
 				cal.Equals();
 			}
-			else{
+			else if ('+' == c || '-' == c){
 				cal.Operation(c);
 			}
 			
 		}
 
-		cal.getResult();
+		System.out.println(cal.getResult());
 	}
 }

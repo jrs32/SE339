@@ -15,20 +15,25 @@ public class Operand2 extends CalcState{
 	public void Digit(Calculator calc, char c) {
 		// TODO Auto-generated method stub
 		if(Character.isDigit(c)){
+			calc.appendInput(c);
 			calc.setState(Operand2.singleton);
 		}
 	}
 
 	@Override
 	public void Operation(Calculator calc, char c) {
-		// TODO Auto-generated method stub
-		
+		// Execute Pending Operation and Reset to having no pending operation
+		if('+' == c || '-' == c){
+			calc.memory = calc.getResult();
+			calc.appendInput(c);
+			calc.setState(ComputePending.singleton);
+		}
 	}
 
 	@Override
 	public void Equal(Calculator calc) {
-		// TODO Auto-generated method stub
-		calc.setState(ComputeWithoutPending.singleton);
+		calc.memory = calc.getResult();
+		calc.setState(StartState.singleton);
 	}
 
 }

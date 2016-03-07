@@ -21,15 +21,14 @@ public class Operand1 extends CalcState{
 	}
 	public void Operation(Calculator calc, char c) {
 		// TODO Auto-generated method stub
-		if('+' == c){
+		if('+' == c || '-' == c){
 			calc.appendInput(c);
 			calc.setState(ComputePending.singleton);
 		}
 		
 	}
 	public void Equal(Calculator calc) {
-		// TODO Auto-generated method stub
-		
+		// We only have one operand, equals shouldn't calculate anything
 	}
 	
 }

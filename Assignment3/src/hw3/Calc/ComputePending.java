@@ -23,14 +23,13 @@ public class ComputePending extends CalcState {
 
 	@Override
 	public void Operation(Calculator calc, char c) {
-		// TODO Auto-generated method stub
+		// Previous entry was an operation, shouldn't add another operation
 		
 	}
 
 	@Override
 	public void Equal(Calculator calc) {
-		// TODO Auto-generated method stub
-		
+		// Previous entry was an operation, shouldn't try to equal without an operand2
 	}
 
 }

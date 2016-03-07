@@ -14,8 +14,9 @@ public class StartState extends CalcState{
 	
 	@ Override
 	public void Digit(Calculator calc, char c) {
-        calc.setDisplay("" + c);
         if ('0' != c) { // Only advance to Accumulate State if a non-zero digit 
+        	calc.memory = "";
+        	calc.appendInput(c);
             calc.setState(Operand1.singleton);
         }
 	}
