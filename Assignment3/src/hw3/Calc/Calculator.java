@@ -7,7 +7,7 @@ import javax.script.ScriptException;
 public class Calculator {
 
 	// Calculator's current state
-	private CalcState state;
+	CalcState state;
 	
 	// The number stored in memory from previous calculations
 	String memory;

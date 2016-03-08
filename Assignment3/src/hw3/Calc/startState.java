@@ -15,20 +15,21 @@ public class StartState extends CalcState{
 	@ Override
 	public void Digit(Calculator calc, char c) {
         if ('0' != c) { // Only advance to Accumulate State if a non-zero digit 
-        	calc.memory = "";
         	calc.appendInput(c);
             calc.setState(Operand1.singleton);
         }
 	}
 
 	public void Operation(Calculator calc, char c) {
-		// TODO Auto-generated method stub
-		
+		if(calc.memory == ""){
+			calc.appendInput('0');
+		}
+		calc.appendInput(c);
+		calc.setState(Operand2.singleton);
 	}
 
 	public void Equal(Calculator calc) {
 		// TODO Auto-generated method stub
-		
 	}
 
 }
