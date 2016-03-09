@@ -27,6 +27,10 @@ public class CalMain {
 				cal.memory = "";
 				cal.state = StartState.singleton;
 			}
+			else{
+				System.out.println("Incorrect format");
+				exit();
+			}
 			
 		}
 
