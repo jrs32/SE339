@@ -13,7 +13,6 @@ public class Operand2 extends CalcState{
 
 	@Override
 	public void Digit(Calculator calc, char c) {
-		// TODO Auto-generated method stub
 		if(Character.isDigit(c)){
 			calc.appendInput(c);
 			calc.setState(Operand2.singleton);

@@ -14,7 +14,6 @@ public class ComputePending extends CalcState {
 	
 	@Override
 	public void Digit(Calculator calc, char c) {
-		// TODO Auto-generated method stub
 		if('0' != c){ 
 			calc.appendInput(c);
 			calc.setState(Operand2.singleton);
@@ -23,13 +22,14 @@ public class ComputePending extends CalcState {
 
 	@Override
 	public void Operation(Calculator calc, char c) {
-		// Previous entry was an operation, shouldn't add another operation
-		
+		System.out.println("Two operations shouldn't be called back-to-back");
+		calc.setState(errorState.singleton); // Two operations shouldn't be called back-to-back
 	}
 
 	@Override
 	public void Equal(Calculator calc) {
-		// Previous entry was an operation, shouldn't try to equal without an operand2
+		System.out.println("'=' shouldn't directly follow an operation");
+		calc.setState(errorState.singleton); // '=' shouldn't directly follow an operation
 	}
 
 }

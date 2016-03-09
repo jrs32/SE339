@@ -20,7 +20,7 @@ public class Calculator {
 	public void reset(){
 		memory = "";
 		state = StartState.singleton;
-}
+	}
 	
 	// If a number is pressed on the calculator
 	public void addDigit(char digit){

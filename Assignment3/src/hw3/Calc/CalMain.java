@@ -6,8 +6,9 @@ public class CalMain {
 		if(args.length > 0){ // If it is called with a cmd line argument, use it
 			input = args[0];
 		}
-		//input = "3+42-1*2+2.3="; // Reads as 3 + 42 - 12 + 23
-		input = "+3=+4=c4-2=";
+		else {
+			input = "3+4="; // Sample Input
+		}
 		Calculator cal = new Calculator();
 		cal.setState(StartState.singleton);
 
@@ -29,11 +30,12 @@ public class CalMain {
 			}
 			else{
 				System.out.println("Incorrect format");
-				exit();
+				return;
 			}
 			
 		}
-
-		System.out.println(cal.getResult());
+		if(cal.state != errorState.singleton){
+			System.out.println(cal.getResult());
+		}
 	}
 }

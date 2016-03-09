@@ -14,22 +14,22 @@ public class StartState extends CalcState{
 	
 	@ Override
 	public void Digit(Calculator calc, char c) {
-        if ('0' != c) { // Only advance to Accumulate State if a non-zero digit 
+        if ('0' != c) { // Only advance to Operand1 if a non-zero digit 
         	calc.appendInput(c);
             calc.setState(Operand1.singleton);
         }
 	}
 
 	public void Operation(Calculator calc, char c) {
-		if(calc.memory == ""){
+		if(calc.memory == ""){ // If no digit was entered, treat operand1 as 0
 			calc.appendInput('0');
 		}
-		calc.appendInput(c);
-		calc.setState(Operand2.singleton);
+		calc.appendInput(c); // Else use previous calculation as operand1
+		calc.setState(ComputePending.singleton);
 	}
 
 	public void Equal(Calculator calc) {
-		// TODO Auto-generated method stub
+		// Do Nothing 
 	}
 
 }

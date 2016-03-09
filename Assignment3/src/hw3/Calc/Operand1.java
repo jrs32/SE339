@@ -28,7 +28,8 @@ public class Operand1 extends CalcState{
 		
 	}
 	public void Equal(Calculator calc) {
-		// We only have one operand, equals shouldn't calculate anything
+		System.out.println(" = can't be called on one operand");
+		calc.setState(errorState.singleton);
 	}
 	
 }
